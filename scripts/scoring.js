@@ -19,16 +19,18 @@ function renderScoringButtons() {
   // Add code here
   $("#score").show();
 
-  //$("#question-modal-show-answer").click(("#question-modal-actions") => {
-  //("#scoring-actions").show();
-  //});
-  //$("#question-modal-text").html(question.question_text);
-  //$("#question-modal-show-answer")
-  //.click(() => {
-  //answerOnClick(categoryIndex, moneyValue);
-  //})
-  //$("#correct-button").click();
-  //$("#incorrect-button").click();
+  $("#question-modal-show-answer").click(() => {
+    $("#question-modal-actions").hide();
+    $("#scoring-actions").show();
+  });
+
+  $("#correct-button").click(() => {
+    addToScore();
+  });
+
+  $("#incorrect-button").click(() => {
+    subtractFromScore();
+  });
 }
 
 /* TODO: Program the following:
@@ -50,11 +52,16 @@ function renderScoringButtons() {
  *      HINT: Compute the new score and then call the helper function.
  */
 
-function subtractFromScore(getCurrentScore) {
+function subtractFromScore() {
   // Add code here
-  let current_score = getCurrentScore(currentQuestionValue);
+  let current_score = getCurrentScore();
+  let new_score = current_score - currentQuestionValue;
+  $("#current-score").html(new_score);
 }
 
 function addToScore() {
   // Add code here
+  let current_score = getCurrentScore();
+  let new_score = current_score + currentQuestionValue;
+  $("#current-score").html(new_score);
 }
