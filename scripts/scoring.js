@@ -56,12 +56,14 @@ function subtractFromScore() {
   // Add code here
   let current_score = getCurrentScore();
   let new_score = current_score - currentQuestionValue;
-  $("#current-score").html(new_score);
+  let formatted_score = getFormattedScore(new_score);
+  $("#current-score").html(formatted_score);
 }
 
 function addToScore() {
   // Add code here
   let current_score = getCurrentScore();
   let new_score = current_score + currentQuestionValue;
-  $("#current-score").html(new_score);
+  let formatted_score = getFormattedScore(new_score);
+  $("#current-score").html(formatted_score);
 }
